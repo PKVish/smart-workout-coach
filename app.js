@@ -1,7 +1,29 @@
 const $=s=>document.querySelector(s);let source,items=[],steps=[],at=0,clock,guideClock,left=0,total=0,running=false,paused=false;
 const fmt=n=>`${String(Math.floor(n/60)).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`;function number(v){return +(String(v??'').match(/\d+/)||[0])[0]}function seconds(v){let s=String(v??'');let colon=s.match(/(\d+):([0-5]\d)(?::([0-5]\d))?/);if(colon)return colon[3]?+colon[1]*3600+ +colon[2]*60+ +colon[3]:+colon[1]*60+ +colon[2];let n=number(s);return /min/i.test(s)?n*60:n}function range(v){let a=String(v||'').split(/[–—-]/).map(seconds);return a.length>1?Math.max(0,a[1]-a[0]):0}function guide(v){return typeof v==='string'?v:v?[v.start,v.action,...Object.entries(v).filter(([k])=>!['start','action'].includes(k)).map(([,x])=>x)].filter(Boolean).join(' '):''}function parsedTiming(v){let s=String(v||''),a=s.match(/(\d+)\s*s\s*(exercise|active|hold)/i),r=s.match(/(\d+)\s*s\s*rest/i);return{active:a?+a[1]:0,rest:r?+r[1]:0}}
 function makeExercise(e,section,round=null){let t=parsedTiming(e.timing),window=e.time_window||e.time||'',reps=e.reps_per_set||e.reps||e.prescribed_sets_and_reps||'',setCount=e.total_sets||number(String(e.prescribed_sets_and_reps||'').match(/\d+\s*sets?/i)?.[0])||1,duration=seconds(e.duration)||t.active||(!t.rest?range(window):0),rest=seconds(e.rest)||t.rest||0;return{section,round,name:e.name||'Exercise',sets:setCount,reps,window,duration:duration||0,rest,visual:guide(e.visual_guide),explicitSets:e.sets||null}}
-function normalize(j){let out=[];for(const section of (j?.workout_routine?.sections||j?.sections||[])){let title=section.title||'';if(Array.isArray(section.circuit_rounds)){for(const round of section.circuit_rounds)for(const e of (round.exercises||[]))out.push(makeExercise(e,title,round.round_number))}else for(const e of (section.exercises||[]))out.push(makeExercise(e,title))}return out}
+function normalize(j){
+  const out=[];
+  const sections=j?.workout_routine?.sections||j?.sections||[];
+  for(const section of sections){
+    const title=section.title||'';
+    const definitions=Array.isArray(section.circuit_rounds)?section.circuit_rounds:[];
+    if(definitions.length){
+      // total_circuit_rounds is authoritative. If fewer round definitions are
+      // supplied, reuse the first round as the circuit template.
+      const requested=Math.max(1,Number(section.total_circuit_rounds)||definitions.length);
+      for(let roundIndex=0;roundIndex<requested;roundIndex++){
+        const definition=definitions[roundIndex]||definitions[0];
+        const roundNumber=roundIndex+1;
+        for(const exercise of (definition.exercises||[])){
+          out.push(makeExercise(exercise,title,roundNumber));
+        }
+      }
+    }else{
+      for(const exercise of (section.exercises||[]))out.push(makeExercise(exercise,title));
+    }
+  }
+  return out;
+}
 function createSteps(){steps=[];items.forEach((e,ei)=>{let sets=e.explicitSets?.length?e.explicitSets:Array.from({length:e.sets},(_,x)=>({set_number:x+1,duration:e.duration,rest:e.rest}));sets.forEach((set,si)=>{let duration=seconds(set.duration)||e.duration,count=number(e.reps),type=duration?'time':'count',amount=duration||count||1,rest=seconds(set.rest)||e.rest;steps.push({...e,kind:'work',set:set.set_number||si+1,setTotal:sets.length,type,amount});if(rest&&(si<sets.length-1||ei<items.length-1))steps.push({kind:'rest',amount:rest,name:e.name,next:si<sets.length-1?e.name:items[ei+1]?.name,section:e.section,round:e.round})})})}
 function build(j){try{items=normalize(j);createSteps();render();at=0;ready();$('#coach').classList.toggle('hidden',!steps.length);$('#status').textContent=items.length?`Loaded ${items.length} exercise entries and ${steps.filter(x=>x.kind==='work').length} work sets.`:'No supported exercises found.'}catch(e){items=[];steps=[];$('#status').textContent='Could not understand JSON: '+e.message}}
 function render(){let workSecs=steps.filter(x=>x.kind==='work'&&x.type==='time').reduce((a,x)=>a+x.amount,0),restSecs=steps.filter(x=>x.kind==='rest').reduce((a,x)=>a+x.amount,0);$('#summary').textContent=`${items.length} exercise entries • ${steps.filter(x=>x.kind==='work').length} work sets • timed work ${fmt(workSecs)} • rest ${fmt(restSecs)}`;$('#plan').innerHTML=items.map((e,n)=>`<li data-n="${n}"><b>${e.name}</b>${e.round?` • Round ${e.round}`:''} — ${e.explicitSets?.length||e.sets} set(s), ${e.reps||fmt(e.duration)}, rest ${fmt(e.rest)}${e.window?' • '+e.window:''}<br><small>${e.visual}</small></li>`).join('')}
