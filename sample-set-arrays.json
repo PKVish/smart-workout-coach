@@ -1,0 +1,163 @@
+{
+  "workout_routine": {
+    "sections": [
+      {
+        "section_number": 1,
+        "title": "Warm-Up",
+        "clock_range": "00:00 – 03:00",
+        "duration": "3 Mins",
+        "exercises": [
+          {
+            "time": "00:00 – 01:00",
+            "name": "Light Marching in Place",
+            "visual_guide": "Stand tall, lift knees gently to hip height alternately, swinging arms smoothly at your sides."
+          },
+          {
+            "time": "01:00 – 02:00",
+            "name": "Arm Circles",
+            "visual_guide": "Extend arms out to sides at shoulder height; make medium circles (30s forward, 30s backward)."
+          },
+          {
+            "time": "02:00 – 03:00",
+            "name": "Gentle Torso Twists",
+            "visual_guide": "Stand with feet wide, hands near chest; gently rotate torso left and right, letting hips follow slightly."
+          }
+        ]
+      },
+      {
+        "section_number": 2,
+        "title": "Main Workout Circuit",
+        "clock_range": "03:00 – 18:00",
+        "duration": "15 Mins",
+        "exercises": [
+          {
+            "time_window": "03:00 – 06:30",
+            "name": "Incline Chair Push-Ups",
+            "total_sets": 3,
+            "reps_per_set": "6–8 Reps",
+            "visual_guide": {
+              "start": "Place hands shoulder-width on chair seat, body in a plank position from head to heels.",
+              "action": "Lower chest slowly toward chair edge (inhale); push firmly back to starting position (exhale)."
+            },
+            "sets": [
+              {
+                "set_number": 1,
+                "duration": "30s exercise",
+                "rest": "60s rest"
+              },
+              {
+                "set_number": 2,
+                "duration": "30s exercise",
+                "rest": "60s rest"
+              },
+              {
+                "set_number": 3,
+                "duration": "30s exercise",
+                "rest": "60s rest"
+              }
+            ]
+          },
+          {
+            "time_window": "06:30 – 10:00",
+            "name": "Chair Box Squats",
+            "total_sets": 3,
+            "reps_per_set": "8–10 Reps",
+            "visual_guide": {
+              "start": "Stand facing away from chair, feet shoulder-width apart, arms extended forward for balance.",
+              "action": "Hinge hips back and lower down until glutes lightly tap the chair seat; drive through heels to stand."
+            },
+            "sets": [
+              {
+                "set_number": 1,
+                "duration": "30s exercise",
+                "rest": "60s rest"
+              },
+              {
+                "set_number": 2,
+                "duration": "30s exercise",
+                "rest": "60s rest"
+              },
+              {
+                "set_number": 3,
+                "duration": "30s exercise",
+                "rest": "60s rest"
+              }
+            ]
+          },
+          {
+            "time_window": "10:00 – 13:00",
+            "name": "Mat Glute Bridges",
+            "total_sets": 3,
+            "reps_per_set": "10–12 Reps",
+            "visual_guide": {
+              "start": "Lie flat on mat, knees bent, feet flat on floor hip-width apart, arms at sides.",
+              "action": "Press through heels, squeeze glutes, and lift hips toward ceiling until thighs and torso line up; lower down with control."
+            },
+            "sets": [
+              {
+                "set_number": 1,
+                "duration": "35s exercise",
+                "rest": "45s rest"
+              },
+              {
+                "set_number": 2,
+                "duration": "35s exercise",
+                "rest": "45s rest"
+              },
+              {
+                "set_number": 3,
+                "duration": "35s exercise",
+                "rest": "45s rest"
+              }
+            ]
+          },
+          {
+            "time_window": "13:00 – 18:00",
+            "name": "Bird-Dog Holds (Core Stabilization)",
+            "total_sets": 3,
+            "reps_per_set": "15–20s per side",
+            "visual_guide": {
+              "start": "Position on mat on hands and knees (quadruped stance), spine neutral.",
+              "action": "Extend right arm forward and left leg straight back until parallel to floor; hold steady for 15–20s while breathing. Switch sides."
+            },
+            "sets": [
+              {
+                "set_number": 1,
+                "duration": "40s active hold",
+                "rest": "45s rest"
+              },
+              {
+                "set_number": 2,
+                "duration": "40s active hold",
+                "rest": "45s rest"
+              },
+              {
+                "set_number": 3,
+                "duration": "40s active hold",
+                "rest": "45s rest"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section_number": 3,
+        "title": "Cool-Down & Stretch",
+        "clock_range": "18:00 – 20:00",
+        "duration": "2 Mins",
+        "exercises": [
+          {
+            "time": "18:00 – 19:00",
+            "name": "Standing Chest Opener",
+            "visual_guide": "Clasp hands behind lower back, pull shoulders back and down, gently lifting chest upward. Hold for 30s."
+          },
+          {
+            "time": "19:00 – 20:00",
+            "name": "Standing Quadriceps Stretch",
+            "visual_guide": "Stand near chair for balance; pull one ankle back toward glutes, keeping knees aligned. Hold 30s per leg."
+          }
+        ]
+      }
+    ]
+  }
+}
