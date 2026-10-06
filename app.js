@@ -7,7 +7,7 @@ let voiceRestartTimer = null;
 let lastVoiceCommand = '';
 let lastVoiceCommandAt = 0;
 const VOICE_REPEAT_WINDOW_MS = 4000;
-let selected,program,work=[],steps=[],at=0,timer,guide,left=0,elapsed=0,startAt=0,running=false,paused=false,wakeLock=null;
+let selected,program,work=[],steps=[],at=0,timer,guide,left=0,elapsed=0,startAt=0,running=false,paused=false,wakeLock=null;let workoutStarted=false;
 const fmt=n=>`${String(Math.floor(n/60)).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`;function sec(v){let m=String(v||'').match(/(\d+)\s*(?:[–-]\s*\d+\s*)?(min|minute|sec|second)/i);return m?(/min/i.test(m[2])?+m[1]*60:+m[1]):0}function make(e,section,set=0,total=0){return{kind:'work',section,set,total,name:e.name||'Exercise',raw:e.duration||'',duration:sec(e.duration),rest:sec(e.rest_duration),reps:e.reps||'',instructions:e.instructions||'',image:e.image||'',video:e.video||'',seq:0,totalExercises:0}}function validate(j){
   return Boolean(
     j?.program_name &&
@@ -327,9 +327,34 @@ function showExerciseMedia(step){
   }
   if(box.children.length > 1) box.classList.add('has-two');
 }
+function setWorkoutControlsComplete(isComplete){
+  $('#primaryControls')?.classList.toggle('workout-controls-hidden', isComplete);
+  $('#secondaryControls')?.classList.toggle('workout-controls-hidden', isComplete);
+  $('#completionActions')?.classList.toggle('hidden', !isComplete);
+}
+function resetWorkoutDisplayState(){
+  setWorkoutControlsComplete(false);
+  $('#finish')?.classList.add('hidden');
+  $('#startAgain')?.classList.remove('hidden');
+}
+function startAgain(){
+  if(!program) return;
+  cancel();
+  load(program);
+  workoutStarted = true;
+  setWorkoutControlsComplete(false);
+  setPauseButtonForWake(false);
+  startVoiceRecognition?.();
+  begin(false);
+}
 function setPauseButtonForWake(isAwake){
   const button = $('#pause');
   if(!button) return;
+  if(!workoutStarted){
+    button.textContent = 'Pause';
+    button.classList.remove('pause-resume');
+    return;
+  }
   if(isAwake){
     button.textContent = 'Pause';
     button.classList.remove('pause-resume');
@@ -396,7 +421,7 @@ function cancelAudio(){clearTimeout(guide);speechSynthesis.cancel()}function can
   utterance.onerror = scheduleVoiceRestart;
   speechSynthesis.speak(utterance);
 }
-function load(j){cancel();try{steps=parse(j);selected=program=j;at=0;$('#program').textContent=`${j.program_name} • ${j.day||''}`;$('#plan').innerHTML=plan(j);$('#coach').classList.remove('hidden');$('#status').textContent='Workout planned.';show()}catch(e){$('#status').textContent=e.message}}function label(s){return sectionTitle(s.section)}function show(){let s=steps[at];if(!s)return ended();$('#phase').textContent=s.kind==='rest'?'Rest':`${label(s)}${s.set?` [${s.set} of ${s.total}]`:''}`;$('#name').textContent=s.kind==='rest'?'Recover':s.name;$('#timer').textContent=s.duration?fmt(s.duration):'00:00';$('#measure').textContent=s.kind==='rest'?`Next: ${s.nextExercise?.name||'Finish'}`:(s.reps||s.raw||'');$('#sequence').textContent=s.kind==='rest'?`After exercise ${s.seq} of ${s.totalExercises}`:`Exercise ${s.seq} of ${s.totalExercises}`;$('#done').classList.toggle('hidden',!!s.duration);showExerciseMedia(s)}function exerciseAnnouncement(s){
+function load(j){cancel();try{steps=parse(j);selected=program=j;at=0;workoutStarted=false;resetWorkoutDisplayState();$('#program').textContent=`${j.program_name} • ${j.day||''}`;$('#plan').innerHTML=plan(j);$('#coach').classList.remove('hidden');$('#status').textContent='Workout planned.';show()}catch(e){$('#status').textContent=e.message}}function label(s){return sectionTitle(s.section)}function show(){let s=steps[at];if(!s)return ended();$('#phase').textContent=s.kind==='rest'?'Rest':`${label(s)}${s.set?` [${s.set} of ${s.total}]`:''}`;$('#name').textContent=s.kind==='rest'?'Recover':s.name;$('#timer').textContent=s.duration?fmt(s.duration):'00:00';$('#measure').textContent=s.kind==='rest'?`Next: ${s.nextExercise?.name||'Finish'}`:(s.reps||s.raw||'');$('#sequence').textContent=s.kind==='rest'?`After exercise ${s.seq} of ${s.totalExercises}`:`Exercise ${s.seq} of ${s.totalExercises}`;$('#done').classList.toggle('hidden',!!s.duration);showExerciseMedia(s)}function exerciseAnnouncement(s){
   if(s.kind === 'rest'){
     const next = s.nextExercise;
     if(!next) return 'Rest. Next, finish workout.';
@@ -406,11 +431,25 @@ function load(j){cancel();try{steps=parse(j);selected=program=j;at=0;$('#program
 
   // Required order: exercise name, reps or duration, instructions.
   const measure = s.reps || s.raw || '';
-  return [s.name, measure, s.instructions]
+  return [`Start ${s.name}`, measure, s.instructions]
     .filter(Boolean)
     .join('. ') + '.';
 }
-function begin(resume=false){let s=steps[at];if(!s)return ended();running=true;paused=false;acquireWake();if(!resume){cancelAudio();left=s.duration;elapsed=0;startAt=Date.now();speak(exerciseAnnouncement(s))}if(s.kind==='work'){if(resume){for(const video of currentExerciseVideos()){video.loop=true;video.muted=true;video.play().catch(()=>{})}}else startCurrentExerciseVideos()}timer=setInterval(s.duration?tick:up,1000)}function tick(){let s=steps[at];$('#timer').textContent=fmt(left);if(s.duration>4&&left===Math.ceil(s.duration/2)+2)speak('Approaching halfway');if([5,4,3,2,1].includes(left))speak(String(left));if(left--<=0)next()}function up(){elapsed=Math.floor((Date.now()-startAt)/1000);$('#timer').textContent=fmt(elapsed);if(elapsed&&elapsed%15===0)speak(`${elapsed} seconds`)}function next(){cancel();at++;if(at>=steps.length)return ended();show();begin()}function reset(){cancel();paused=false;show();begin()}function ended(){cancel();$('#phase').textContent='Complete';$('#name').textContent='Workout complete';$('#timer').textContent='✓';$('#exerciseMedia').replaceChildren();$('#measure').textContent='';$('#sequence').textContent=`${work.length} exercises completed`;$('#done').classList.add('hidden');$('#finish').classList.remove('hidden')}
+function begin(resume=false){let s=steps[at];if(!s)return ended();running=true;paused=false;acquireWake();if(!resume){cancelAudio();left=s.duration;elapsed=0;startAt=Date.now();speak(exerciseAnnouncement(s))}if(s.kind==='work'){if(resume){for(const video of currentExerciseVideos()){video.loop=true;video.muted=true;video.play().catch(()=>{})}}else startCurrentExerciseVideos()}timer=setInterval(s.duration?tick:up,1000)}function tick(){let s=steps[at];$('#timer').textContent=fmt(left);if(s.duration>4&&left===Math.ceil(s.duration/2)+2)speak('Approaching halfway');if([5,4,3,2,1].includes(left))speak(String(left));if(left--<=0)next()}function up(){elapsed=Math.floor((Date.now()-startAt)/1000);$('#timer').textContent=fmt(elapsed);if(elapsed&&elapsed%15===0)speak(`${elapsed} seconds`)}function next(){cancel();at++;if(at>=steps.length)return ended();show();begin()}function reset(){cancel();paused=false;show();begin()}function ended(){
+  cancel();
+  workoutStarted = false;
+  $('#phase').textContent = 'Complete';
+  $('#name').textContent = 'Workout complete';
+  $('#timer').textContent = '✓';
+  $('#exerciseMedia')?.replaceChildren();
+  $('#measure').textContent = '';
+  $('#sequence').textContent = `${work.length} exercises completed`;
+  setWorkoutControlsComplete(true);
+  $('#finish').classList.remove('hidden');
+  $('#startAgain').classList.remove('hidden');
+  const focus = String(program?.focus || '').trim();
+  speak(`Congratulations, you have completed${focus ? `. ${focus}` : ' your workout'}.`);
+} exercises completed`;$('#done').classList.add('hidden');$('#finish').classList.remove('hidden')}
 document.addEventListener('visibilitychange',()=>{if(document.hidden){suspendVoiceRecognition()}else if(voiceWanted){scheduleVoiceRestart()}if(document.hidden&&running){clearInterval(timer);cancelAudio();running=false;paused=true;releaseWake();$('#status').textContent='Workout paused because the app became inactive.'}else if(!document.hidden&&running)acquireWake()});window.addEventListener('pagehide',()=>{if(running){clearInterval(timer);cancelAudio();running=false;paused=true;releaseWake()}});
 function download(){if(!selected)return $('#status').textContent='Plan a workout first.';let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(selected,null,2)],{type:'application/json'}));a.download=`day${new Date().toISOString().replace(/\D/g,'').slice(0,14)}.json`;a.click()}function dateKey(){return new Date().toISOString().slice(0,10)}function calendar(){let d=new Date,y=d.getFullYear(),m=d.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),saved=JSON.parse(localStorage.getItem('workoutDays')||'{}');$('#month').textContent=d.toLocaleDateString([],{month:'long',year:'numeric'});let h=['S','M','T','W','T','F','S'].map(x=>`<div>${x}</div>`).join('')+'<div></div>'.repeat(first);for(let n=1;n<=days;n++){let k=`${y}-${String(m+1).padStart(2,'0')}-${String(n).padStart(2,'0')}`;h+=`<div class="${saved[k]?'completed':''}">${n}${saved[k]?' ✓':''}</div>`}$('#calendar').innerHTML=h}
-$('#file').onchange=async e=>{try{selected=JSON.parse(await e.target.files[0].text());$('#status').textContent='Uploaded. Select Plan Upload.'}catch(e){selected=null;$('#status').textContent=e.message}};$('#planUpload').onclick=()=>selected?load(selected):$('#status').textContent='Upload JSON first.';$('#planJson').onclick=()=>{try{load(JSON.parse($('#json').value))}catch(e){$('#status').textContent=e.message}};$('#sample').onclick=async()=>load(await fetch('sample-workout.json').then(r=>r.json()));$('#download').onclick=download;$('#start').onclick=()=>{startVoiceRecognition();if(!running)begin(paused)};$('#pause').onclick=()=>{if(running){clearInterval(timer);cancelAudio();pauseCurrentExerciseVideos(false);running=false;paused=true;releaseWake()}else if(paused){let s=steps[at];if(!s.duration)startAt=Date.now()-elapsed*1000;begin(true)}};$('#done').onclick=next;$('#skip').onclick=next;$('#reset').onclick=reset;$('#finish').onclick=()=>{let d=JSON.parse(localStorage.getItem('workoutDays')||'{}');d[dateKey()]=program.program_name;localStorage.setItem('workoutDays',JSON.stringify(d));calendar();$('#finish').classList.add('hidden')};$('#exerciseFiles').addEventListener('change',loadSelectedExerciseFile);loadExerciseFileList();setPauseButtonForWake(false);calendar();if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+$('#file').onchange=async e=>{try{selected=JSON.parse(await e.target.files[0].text());$('#status').textContent='Uploaded. Select Plan Upload.'}catch(e){selected=null;$('#status').textContent=e.message}};$('#planUpload').onclick=()=>selected?load(selected):$('#status').textContent='Upload JSON first.';$('#planJson').onclick=()=>{try{load(JSON.parse($('#json').value))}catch(e){$('#status').textContent=e.message}};$('#sample').onclick=async()=>load(await fetch('sample-workout.json').then(r=>r.json()));$('#download').onclick=download;$('#start').onclick=()=>{workoutStarted=true;setWorkoutControlsComplete(false);startVoiceRecognition();if(!running)begin(paused)};$('#pause').onclick=()=>{if(running){clearInterval(timer);cancelAudio();pauseCurrentExerciseVideos(false);running=false;paused=true;releaseWake()}else if(paused){let s=steps[at];if(!s.duration)startAt=Date.now()-elapsed*1000;begin(true)}};$('#done').onclick=next;$('#skip').onclick=next;$('#reset').onclick=reset;$('#finish').onclick=()=>{let d=JSON.parse(localStorage.getItem('workoutDays')||'{}');d[dateKey()]=program.program_name;localStorage.setItem('workoutDays',JSON.stringify(d));calendar();$('#finish').classList.add('hidden')};$('#exerciseFiles').addEventListener('change',loadSelectedExerciseFile);$('#startAgain').onclick=startAgain;loadExerciseFileList();setPauseButtonForWake(false);calendar();if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
