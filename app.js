@@ -344,7 +344,9 @@ function startAgain(){
   workoutStarted = true;
   setWorkoutControlsComplete(false);
   setPauseButtonForWake(false);
-  startVoiceRecognition?.();
+  if (typeof startVoiceRecognition === 'function') {
+	startVoiceRecognition();
+  }
   begin(false);
 }
 function setPauseButtonForWake(isAwake){
