@@ -89,6 +89,12 @@
           "total_sets": 1,
           "exercises": [
             {
+              "name": "Child's Pose",
+              "duration": "25 sec",
+			  "rest_duration": "5 sec",
+              "instructions": "Position: Kneel on the floor, sit back on your heels, and fold your torso forward over your thighs. Extend your arms straight ahead on the mat and rest your forehead gently on the ground."
+            },
+            {
               "name": "Seated Hamstring Stretch Right",
               "duration": "25 sec",
 			  "rest_duration": "5 sec",
