@@ -443,15 +443,18 @@ function begin(resume=false){let s=steps[at];if(!s)return ended();running=true;p
   $('#phase').textContent = 'Complete';
   $('#name').textContent = 'Workout complete';
   $('#timer').textContent = '✓';
-  $('#exerciseMedia')?.replaceChildren();
+  const media = $('#exerciseMedia');
+  if(media) media.replaceChildren();
   $('#measure').textContent = '';
-  $('#sequence').textContent = `${work.length} exercises completed`;
+  $('#sequence').textContent = `${work.length}
   setWorkoutControlsComplete(true);
   $('#finish').classList.remove('hidden');
   $('#startAgain').classList.remove('hidden');
-  const focus = String(program?.focus || '').trim();
-  speak(`Congratulations, you have completed${focus ? `. ${focus}` : ' your workout'}.`);
-} exercises completed`;$('#done').classList.add('hidden');$('#finish').classList.remove('hidden')}
+  const focus = String(program && program.focus ? program.focus : '').trim();
+  speak(focus
+    ? `Congratulations, you have completed. ${focus}.`
+    : 'Congratulations, you have completed your workout.');
+}
 document.addEventListener('visibilitychange',()=>{if(document.hidden){suspendVoiceRecognition()}else if(voiceWanted){scheduleVoiceRestart()}if(document.hidden&&running){clearInterval(timer);cancelAudio();running=false;paused=true;releaseWake();$('#status').textContent='Workout paused because the app became inactive.'}else if(!document.hidden&&running)acquireWake()});window.addEventListener('pagehide',()=>{if(running){clearInterval(timer);cancelAudio();running=false;paused=true;releaseWake()}});
 function download(){if(!selected)return $('#status').textContent='Plan a workout first.';let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(selected,null,2)],{type:'application/json'}));a.download=`day${new Date().toISOString().replace(/\D/g,'').slice(0,14)}.json`;a.click()}function dateKey(){return new Date().toISOString().slice(0,10)}function calendar(){let d=new Date,y=d.getFullYear(),m=d.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),saved=JSON.parse(localStorage.getItem('workoutDays')||'{}');$('#month').textContent=d.toLocaleDateString([],{month:'long',year:'numeric'});let h=['S','M','T','W','T','F','S'].map(x=>`<div>${x}</div>`).join('')+'<div></div>'.repeat(first);for(let n=1;n<=days;n++){let k=`${y}-${String(m+1).padStart(2,'0')}-${String(n).padStart(2,'0')}`;h+=`<div class="${saved[k]?'completed':''}">${n}${saved[k]?' ✓':''}</div>`}$('#calendar').innerHTML=h}
 $('#file').onchange=async e=>{try{selected=JSON.parse(await e.target.files[0].text());$('#status').textContent='Uploaded. Select Plan Upload.'}catch(e){selected=null;$('#status').textContent=e.message}};$('#planUpload').onclick=()=>selected?load(selected):$('#status').textContent='Upload JSON first.';$('#planJson').onclick=()=>{try{load(JSON.parse($('#json').value))}catch(e){$('#status').textContent=e.message}};$('#sample').onclick=async()=>load(await fetch('sample-workout.json').then(r=>r.json()));$('#download').onclick=download;$('#start').onclick=()=>{workoutStarted=true;setWorkoutControlsComplete(false);startVoiceRecognition();if(!running)begin(paused)};$('#pause').onclick=()=>{if(running){clearInterval(timer);cancelAudio();pauseCurrentExerciseVideos(false);running=false;paused=true;releaseWake()}else if(paused){let s=steps[at];if(!s.duration)startAt=Date.now()-elapsed*1000;begin(true)}};$('#done').onclick=next;$('#skip').onclick=next;$('#reset').onclick=reset;$('#finish').onclick=()=>{let d=JSON.parse(localStorage.getItem('workoutDays')||'{}');d[dateKey()]=program.program_name;localStorage.setItem('workoutDays',JSON.stringify(d));calendar();$('#finish').classList.add('hidden')};$('#exerciseFiles').addEventListener('change',loadSelectedExerciseFile);$('#startAgain').onclick=startAgain;loadExerciseFileList();setPauseButtonForWake(false);calendar();if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
