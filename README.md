@@ -1,2 +1,2 @@
-# Smart Workout Coach v5
-Uses only the program_name/warm_up/sets/cool_down JSON schema. Completion history is stored in browser localStorage. Run with `python3 -m http.server 8080`.
+# Smart Workout Coach V7
+Clean rebuild. Deploy all files to repository root. Put workouts in artifacts/exercise, images in artifacts/images, and videos in artifacts/videos.

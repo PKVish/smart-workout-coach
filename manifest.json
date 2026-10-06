@@ -1,1 +1,8 @@
-{"name": "Smart Workout Coach", "short_name": "Workout", "start_url": "./", "display": "standalone", "theme_color": "#07111f", "background_color": "#050d18"}
+{
+  "name": "Smart Workout Coach V7",
+  "short_name": "Workout V7",
+  "start_url": "./",
+  "display": "standalone",
+  "theme_color": "#07111f",
+  "background_color": "#050d18"
+}
