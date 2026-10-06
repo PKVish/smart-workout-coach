@@ -18,43 +18,43 @@
               "name": "Child's Pose",
               "duration": "25 sec",
 			  "rest_duration": "5 sec",
-              "instructions": "Position: Kneel on the floor, sit back on your heels, and fold your torso forward over your thighs. Extend your arms straight ahead on the mat and rest your forehead gently on the ground.",
+              "instructions": "Position: Kneel on the floor, sit back on your heels, and fold your torso forward over your thighs. Extend your arms straight ahead on the mat and rest your forehead gently on the ground."
             },
             {
               "name": "Seated Hamstring Stretch Right",
               "duration": "25 sec",
 			  "rest_duration": "5 sec",
-              "instructions": "Position: Sit on mat, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension.",
+              "instructions": "Position: Sit on mat, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension."
             },
 			{
               "name": "Seated Hamstring Stretch Left",
               "duration": "25 sec",
 			  "rest_duration": "10 sec",
-              "instructions": "Position: Sit on mat, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension.",
+              "instructions": "Position: Sit on mat, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension."
             },
             {
               "name": "Quad stretch Right",
               "duration": "25 sec",
 			  "rest_duration": "5 sec",
-              "instructions": "Position: Sit on mat, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension.",
+              "instructions": "Position: Sit on mat, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension."
             },
 			{
               "name": "Quad stretch Left",
               "duration": "25 sec",
 			  "rest_duration": "5 sec",
-              "instructions": "Position: Sit on mat, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension.",
+              "instructions": "Position: Sit on mat, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension."
             },
             {
               "name": "Front-Clasped",
               "duration": "25 sec",
 			  "rest_duration": "5 sec",
-              "instructions": "Position: Interlace your fingers in front of you, turn your palms outward, and press your arms straight out at shoulder height. Round your upper back and push forward while gently tucking your chin to deeply stretch the muscles between your shoulder blades",
+              "instructions": "Position: Interlace your fingers in front of you, turn your palms outward, and press your arms straight out at shoulder height. Round your upper back and push forward while gently tucking your chin to deeply stretch the muscles between your shoulder blades."
             },
 			{
               "name": "Behind-the-Back Clasp",
               "duration": "25 sec",
 			  "rest_duration": "5 sec",
-              "instructions": "Position: Clasp hands behind your back, straighten elbows, and gently lift/press shoulder blades together while lifting the chest.",
+              "instructions": "Position: Clasp hands behind your back, straighten elbows, and gently lift/press shoulder blades together while lifting the chest."
             },
 			{
               "name": "Overhead Triceps Stretch Right",
@@ -72,6 +72,4 @@
       ]
     }
   ]
-}
-	]
 }
