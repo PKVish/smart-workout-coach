@@ -1,83 +1,9 @@
 {
-  "program_name": "Daily Home Workout Program",
+  "program_name": "Cool Down",
   "day": "EveryDay",
-  "focus": "10 Minutes Full Body Tabata Exercise",
-  "duration": "10 min",
+  "focus": "5 Minutes cool down Stretch",
+  "duration": "5 min",
   "sections": [
-	{
-      "section_name": "workout",
-      "total_duration": "10 min",
-      "total_sets": 1,
-      "sets": [
-			{
-			  "duration": "10 min",
-			  "set_number": 1,
-			  "total_sets": 1,
-			  "exercises": [
-				{
-				  "name": "High Knee",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: Drive your knees up toward your chest, pump your arms, and keep your core engaged."
-				},
-				{
-				  "name": "Jump Squat",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: Squat down, jump explosively upward, and land softly with your knees bent."
-				},
-				{
-				  "name": "Burpee Pushups",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: Drop into a plank, perform a push-up, bring your feet forward, then jump up."
-				},
-				{
-				  "name": "Extended Crunches",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: Extend your arms and legs, then crunch your upper body and knees toward each other."
-				},
-				{
-				  "name": "Jumping Jacks",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: Jump your feet apart as your arms go overhead, then return to the starting position."
-				},
-				{
-				  "name": "Front Lunge",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: Step forward, lower into a lunge, push back to standing, and alternate legs."
-				},
-				{
-				  "name": "Superman Pullup",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: Lift your chest and legs, pull your elbows toward your ribs, then extend your arms forward."
-				},
-				{
-				  "name": "Mountain Climber",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: From a high plank, drive your knees toward your chest one at a time while keeping your core tight."
-				},
-				{
-				  "name": "Butt Kicks",
-				  "duration": "40 sec",
-				  "rest_duration": "20 sec",
-				  "instructions": "Position: Jog in place while bringing your heels toward your glutes and keeping your upper body tall."
-				},
-				{
-				  "name": "Plank Reaches",
-				  "duration": "40 sec",
-				  "rest_duration": "1 min",
-				  "instructions": "Position: Hold a high plank and reach one arm forward at a time while keeping your hips stable."
-				}
-			]
-		}
-	]
-    },
     {
       "section_name": "cool_down",
       "total_duration": "5 min",
@@ -88,6 +14,12 @@
           "set_number": 1,
           "total_sets": 1,
           "exercises": [
+            {
+              "name": "Child's Pose",
+              "duration": "25 sec",
+			  "rest_duration": "5 sec",
+              "instructions": "Position: Kneel on the floor, sit back on your heels, and fold your torso forward over your thighs. Extend your arms straight ahead on the mat and rest your forehead gently on the ground.",
+            },
             {
               "name": "Seated Hamstring Stretch Right",
               "duration": "25 sec",
