@@ -1,0 +1,195 @@
+{
+  "program_name": "12-Week Incremental Home Workout Program",
+  "day": "Day 5",
+  "focus": "Upper Body Pull/Arms & Low-Impact Cardio (Progression)",
+  "duration": "20 min",
+  "sections": [
+    {
+      "section_name": "warm_up",
+      "total_duration": "3 min",
+      "total_sets": 1,
+      "sets": [
+        {
+          "duration": "3 min",
+          "set_number": 1,
+          "total_sets": 1,
+          "exercises": [
+            {
+              "name": "Step-Jacks",
+              "duration": "1 min",
+              "instructions": "Position: Stand tall with feet together and arms at your sides. Step your right foot out to the side while raising both arms overhead, then step back to center. Alternate sides continuously. Breath: Maintain steady, rhythmic breathing throughout.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Shoulder Rolls",
+              "duration": "1 min",
+              "instructions": "Position: Stand upright with feet shoulder-width apart and arms relaxed. Roll shoulders smoothly backward in big circles for 30s, then forward for 30s. Breath: Inhale as shoulders lift, exhale as they roll down.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Gentle Side Bends",
+              "duration": "1 min",
+              "instructions": "Position: Stand with feet wider than hip-width, hands on hips or extending right arm overhead. Gently lean torso to the left, return to center, then switch sides. Breath: Inhale reaching up, exhale side bending.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_name": "workout",
+      "total_duration": "15 min",
+      "total_sets": 3,
+      "sets": [
+        {
+          "duration": "5 min",
+          "set_number": 1,
+          "total_sets": 3,
+          "exercises": [
+            {
+              "name": "Chair Dips (Knees Bent)",
+              "reps": "8 reps",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Place hands on the front edge of a sturdy chair seat, knees bent at 90° with feet flat on the floor. Lower hips toward the floor by bending elbows to 90°, keeping your back close to the chair. Press through palms to return to starting position. Breath: Inhale as you lower; exhale as you push back up.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Bodyweight Reverse Lunges",
+              "reps": "8 reps per leg",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Stand tall facing a chair for balance if needed. Step right leg backward and lower rear knee gently toward the mat. Drive through front heel to return to standing, then switch legs. Breath: Inhale stepping back; exhale driving up to center.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Low-Impact Skipping Rope / Jump Simulation",
+              "duration": "40 sec",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Hold skipping rope handles (or simulate rope swinging) standing on mat. Maintain a low-impact, light bounce on the balls of your feet with soft landings to protect joints. Breath: Maintain continuous, controlled nasal breathing.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Standing Abdominal Vacuum Holds",
+              "duration": "40 sec hold",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Stand tall with hands on hips. Exhale completely, gently drawing your navel inward toward your spine without straining your surgical area. Hold position while taking shallow, controlled breaths. Breath: Shallow diaphragm breathing during hold.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        },
+        {
+          "duration": "5 min",
+          "set_number": 2,
+          "total_sets": 3,
+          "exercises": [
+            {
+              "name": "Chair Dips (Knees Bent)",
+              "reps": "8 reps",
+              "rest_duration": "50 sec",
+              "instructions": "Position: Place hands on the front edge of a sturdy chair seat, knees bent at 90° with feet flat on the floor. Lower hips toward the floor by bending elbows to 90°, keeping your back close to the chair. Press through palms to return to starting position. Breath: Inhale as you lower; exhale as you push back up.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Bodyweight Reverse Lunges",
+              "reps": "8 reps per leg",
+              "rest_duration": "50 sec",
+              "instructions": "Position: Stand tall facing a chair for balance if needed. Step right leg backward and lower rear knee gently toward the mat. Drive through front heel to return to standing, then switch legs. Breath: Inhale stepping back; exhale driving up to center.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Low-Impact Skipping Rope / Jump Simulation",
+              "duration": "50 sec",
+              "rest_duration": "50 sec",
+              "instructions": "Position: Hold skipping rope handles (or simulate rope swinging) standing on mat. Maintain a low-impact, light bounce on the balls of your feet with soft landings to protect joints. Breath: Maintain continuous, controlled nasal breathing.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Standing Abdominal Vacuum Holds",
+              "duration": "40 sec hold",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Stand tall with hands on hips. Exhale completely, gently drawing your navel inward toward your spine without straining your surgical area. Hold position while taking shallow, controlled breaths. Breath: Shallow diaphragm breathing during hold.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        },
+        {
+          "duration": "5 min",
+          "set_number": 3,
+          "total_sets": 3,
+          "exercises": [
+            {
+              "name": "Chair Dips (Knees Bent)",
+              "reps": "8 reps",
+              "rest_duration": "60 sec",
+              "instructions": "Position: Place hands on the front edge of a sturdy chair seat, knees bent at 90° with feet flat on the floor. Lower hips toward the floor by bending elbows to 90°, keeping your back close to the chair. Press through palms to return to starting position. Breath: Inhale as you lower; exhale as you push back up.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Bodyweight Reverse Lunges",
+              "reps": "8 reps per leg",
+              "rest_duration": "60 sec",
+              "instructions": "Position: Stand tall facing a chair for balance if needed. Step right leg backward and lower rear knee gently toward the mat. Drive through front heel to return to standing, then switch legs. Breath: Inhale stepping back; exhale driving up to center.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Low-Impact Skipping Rope / Jump Simulation",
+              "duration": "30 sec",
+              "rest_duration": "60 sec",
+              "instructions": "Position: Hold skipping rope handles (or simulate rope swinging) standing on mat. Maintain a low-impact, light bounce on the balls of your feet with soft landings to protect joints. Breath: Maintain continuous, controlled nasal breathing.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Standing Abdominal Vacuum Holds",
+              "duration": "50 sec hold",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Stand tall with hands on hips. Exhale completely, gently drawing your navel inward toward your spine without straining your surgical area. Hold position while taking shallow, controlled breaths. Breath: Shallow diaphragm breathing during hold.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_name": "cool_down",
+      "total_duration": "3 min",
+      "total_sets": 1,
+      "sets": [
+        {
+          "duration": "3 min",
+          "set_number": 1,
+          "total_sets": 1,
+          "exercises": [
+            {
+              "name": "Seated Hamstring Stretch",
+              "duration": "75 sec",
+              "instructions": "Position: Sit on edge of chair, extend one leg forward with heel on floor, hinge forward at hips with flat back. Hold 30s per side. Breath: Deep, slow exhales to release hamstring tension.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Overhead Triceps Stretch",
+              "duration": "75 sec",
+              "instructions": "Position: Reach one arm overhead, bend elbow to place hand on upper back, gently press elbow back with opposite hand. Hold 30s per side. Breath: Slow diaphragmatic breathing.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

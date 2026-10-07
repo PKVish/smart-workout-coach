@@ -1,0 +1,195 @@
+{
+  "program_name": "12-Week Incremental Home Workout Program",
+  "day": "Day 4",
+  "focus": "Upper Body Push & Lower Body Quadriceps (Progression)",
+  "duration": "20 min",
+  "sections": [
+    {
+      "section_name": "warm_up",
+      "total_duration": "3 min",
+      "total_sets": 1,
+      "sets": [
+        {
+          "duration": "3 min",
+          "set_number": 1,
+          "total_sets": 1,
+          "exercises": [
+            {
+              "name": "Light Marching in Place",
+              "duration": "1 min",
+              "instructions": "Position: Stand tall with shoulders back. Drive knees toward hip level alternately while swinging arms. Breath: Maintain continuous, rhythmic diaphragmatic breathing throughout (inhale through nose, exhale through mouth).",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Arm Circles",
+              "duration": "1 min",
+              "instructions": "Position: Stand upright with arms extended straight sideways at shoulder height. Rotate arms in small, controlled circles (30s forward, 30s backward). Breath: Inhale smoothly for 3 circles, exhale smoothly for 3 circles.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Gentle Torso Twists",
+              "duration": "1 min",
+              "instructions": "Position: Stand with feet wider than hip-width, elbows bent near chest level. Rotate torso gently side to side, letting hips rotate slightly. Breath: Inhale as you cross center, exhale gently as you rotate to each side.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_name": "workout",
+      "total_duration": "15 min",
+      "total_sets": 3,
+      "sets": [
+        {
+          "duration": "5 min",
+          "set_number": 1,
+          "total_sets": 3,
+          "exercises": [
+            {
+              "name": "Incline Chair Push-Ups",
+              "reps": "8 reps",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Hands on chair seat edge shoulder-width apart, body forming a straight line from crown to heels. Lower chest toward chair under control. Breath: Inhale slowly on the way down; exhale firmly through mouth as you push back up to starting position.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Chair Box Squats",
+              "reps": "10 reps",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Feet shoulder-width apart facing away from chair, arms extended for balance. Hinge hips back and bend knees to tap chair lightly. Breath: Inhale deeply as you lower down; exhale forcefully through heels as you stand back up.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Mat Glute Bridges",
+              "reps": "12 reps",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Lie on mat with knees bent at 90°, feet flat on floor, arms resting at sides. Drive through heels to lift hips toward ceiling. Breath: Exhale as you squeeze glutes and raise hips; inhale smoothly as you lower hips back to mat.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Bird-Dog Holds",
+              "duration": "60 sec hold per side",
+              "rest_duration": "45 sec",
+              "instructions": "Position: On mat in tabletop stance on hands and knees. Extend opposite arm straight forward and opposite leg straight back parallel to floor. Breath: Do not hold breath; take steady, shallow inhales and exhales while keeping core gently braced.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        },
+        {
+          "duration": "5 min",
+          "set_number": 2,
+          "total_sets": 3,
+          "exercises": [
+            {
+              "name": "Incline Chair Push-Ups",
+              "reps": "8 reps",
+              "rest_duration": "50 sec",
+              "instructions": "Position: Hands on chair seat edge shoulder-width apart, body forming a straight line from crown to heels. Lower chest toward chair under control. Breath: Inhale slowly on the way down; exhale firmly through mouth as you push back up to starting position.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Chair Box Squats",
+              "reps": "10 reps",
+              "rest_duration": "50 sec",
+              "instructions": "Position: Feet shoulder-width apart facing away from chair, arms extended for balance. Hinge hips back and bend knees to tap chair lightly. Breath: Inhale deeply as you lower down; exhale forcefully through heels as you stand back up.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Mat Glute Bridges",
+              "reps": "12 reps",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Lie on mat with knees bent at 90°, feet flat on floor, arms resting at sides. Drive through heels to lift hips toward ceiling. Breath: Exhale as you squeeze glutes and raise hips; inhale smoothly as you lower hips back to mat.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Bird-Dog Holds",
+              "duration": "60 sec hold per side",
+              "rest_duration": "45 sec",
+              "instructions": "Position: On mat in tabletop stance on hands and knees. Extend opposite arm straight forward and opposite leg straight back parallel to floor. Breath: Do not hold breath; take steady, shallow inhales and exhales while keeping core gently braced.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        },
+        {
+          "duration": "5 min",
+          "set_number": 3,
+          "total_sets": 3,
+          "exercises": [
+            {
+              "name": "Incline Chair Push-Ups",
+              "reps": "8 reps",
+              "rest_duration": "60 sec",
+              "instructions": "Position: Hands on chair seat edge shoulder-width apart, body forming a straight line from crown to heels. Lower chest toward chair under control. Breath: Inhale slowly on the way down; exhale firmly through mouth as you push back up to starting position.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Chair Box Squats",
+              "reps": "10 reps",
+              "rest_duration": "60 sec",
+              "instructions": "Position: Feet shoulder-width apart facing away from chair, arms extended for balance. Hinge hips back and bend knees to tap chair lightly. Breath: Inhale deeply as you lower down; exhale forcefully through heels as you stand back up.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Mat Glute Bridges",
+              "reps": "12 reps",
+              "rest_duration": "45 sec",
+              "instructions": "Position: Lie on mat with knees bent at 90°, feet flat on floor, arms resting at sides. Drive through heels to lift hips toward ceiling. Breath: Exhale as you squeeze glutes and raise hips; inhale smoothly as you lower hips back to mat.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Bird-Dog Holds",
+              "duration": "60 sec hold per side",
+              "rest_duration": "45 sec",
+              "instructions": "Position: On mat in tabletop stance on hands and knees. Extend opposite arm straight forward and opposite leg straight back parallel to floor. Breath: Do not hold breath; take steady, shallow inhales and exhales while keeping core gently braced.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_name": "cool_down",
+      "total_duration": "3 min",
+      "total_sets": 1,
+      "sets": [
+        {
+          "duration": "3 min",
+          "set_number": 1,
+          "total_sets": 1,
+          "exercises": [
+            {
+              "name": "Standing Chest Opener Stretch",
+              "duration": "75 sec",
+              "instructions": "Position: Interlace fingers behind lower back, roll shoulders down and lift chest gently. Breath: Take deep, slow inhales into your chest cavity and exhale fully as muscles relax.",
+              "image": "",
+              "video": ""
+            },
+            {
+              "name": "Standing Quadriceps Stretch",
+              "duration": "75 sec",
+              "instructions": "Position: Stand tall near chair for balance, bend knee to hold ankle behind glutes. Breath: Maintain steady, deep breathing (inhale 4s, exhale 4s) throughout the hold.",
+              "image": "",
+              "video": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
