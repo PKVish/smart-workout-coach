@@ -1,0 +1,29 @@
+  {
+    "program_name": "12-Week Incremental Home Workout Program",
+    "day": "Day 6",
+    "focus": "Rest & Active Recovery",
+    "duration": "20 min",
+    "sections": [
+      {
+        "section_name": "rest_and_recovery",
+        "total_duration": "20 min",
+        "total_sets": 1,
+        "sets": [
+          {
+            "duration": "20 min",
+            "set_number": 1,
+            "total_sets": 1,
+            "exercises": [
+              {
+                "name": "Full Body Rest / Optional Evening Walk",
+                "duration": "15–20 min",
+                "instructions": "Full rest day. Optional 15–20 minute gentle evening walk to promote active recovery and circulation without causing strain. Focus on adequate hydration, proper protein intake, and quality sleep to allow body recovery.",
+                "image": "",
+                "video": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
