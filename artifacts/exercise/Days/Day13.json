@@ -122,6 +122,11 @@
             }
             ]
         },
+        {
+          "duration": "5 min",
+          "set_number": 3,
+          "total_sets": 3,
+          "exercises": [        
            {
               "name": "Chair Dips (Knees Bent)",
               "reps": "12 reps",
